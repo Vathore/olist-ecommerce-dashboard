@@ -12,7 +12,7 @@ st.set_page_config(page_title="E-Commerce Dashboard", page_icon="🛒", layout="
 @st.cache_data
 def load_data():
     product_sales_df = pd.read_csv("all_data.csv")
-    customers_df = pd.read_csv("customers_dataset.zip") 
+    customers_df = pd.read_csv("customers_dataset.csv") 
     geolocation_df = pd.read_csv("geolocation_dataset.zip")
     return product_sales_df, customers_df, geolocation_df
 
@@ -90,3 +90,4 @@ heat_data = [[row['geolocation_lat'], row['geolocation_lng']] for index, row in 
 HeatMap(heat_data, radius=15, blur=10).add_to(brazil_map)
 
 st_folium(brazil_map, width=1000, height=500)
+
